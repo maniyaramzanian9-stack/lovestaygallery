@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل مدیریت | LoveStay Gallery</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: #f7faf8;
+            color: #303b36;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e8efeb;
+            padding: 20px 0;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 800;
+            color: #5b9b82;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: #68756e;
+        }
+
+        .nav-links a:hover {
+            color: #5b9b82;
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .welcome h1 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #849087;
+            font-size: 13px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 23px;
+            border: 1px solid #e8efeb;
+            border-radius: 17px;
+        }
+
+        .stat-card span {
+            display: block;
+            color: #829087;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .stat-card strong {
+            font-size: 24px;
+            color: #4e9478;
+        }
+
+        .orders-section {
+            background: white;
+            border: 1px solid #e8efeb;
+            border-radius: 18px;
+            padding: 24px;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .section-heading h2 {
+            font-size: 18px;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+        }
+
+        .refresh-btn {
+            background: #e8f5ee;
+            color: #4d8c72;
+            padding: 10px 17px;
+            border-radius: 10px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+            text-align: right;
+        }
+
+        th, td {
+            padding: 15px 12px;
+            border-bottom: 1px solid #edf1ee;
+            font-size: 13px;
+        }
+
+        th {
+            color: #849087;
+            font-weight: 600;
+            background: #fbfcfb;
+        }
+
+        .status {
+            display: inline-block;
+            background: #fff3dc;
+            color: #a87828;
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        .details-btn {
+            background: #e8f5ee;
+            color: #4d8c72;
+            padding: 8px 13px;
+            border-radius: 8px;
+        }
+
+        .details-row td {
+            background: #f9fcfa;
+            padding: 18px;
+        }
+
+        .items-list {
+            line-height: 2.3;
+            color: #68756e;
+        }
+
+        .message {
+            text-align: center;
+            padding: 35px 10px;
+            color: #849087;
+            font-size: 14px;
+        }
+
+        .error {
+            color: #c45c5c;
+        }
+
+
+        .product-section {
+            background: white;
+            border: 1px solid #e8efeb;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 28px;
+        }
+
+        .product-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            font-size: 13px;
+            color: #68756e;
+            font-weight: 600;
+        }
+
+        .form-field input,
+        .form-field textarea,
+        .form-field select {
+            width: 100%;
+            border: 1px solid #dfe9e3;
+            border-radius: 10px;
+            padding: 12px;
+            font: inherit;
+            font-size: 13px;
+            color: #303b36;
+            background: #fff;
+            outline: none;
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus,
+        .form-field select:focus {
+            border-color: #79b49a;
+            box-shadow: 0 0 0 3px #e8f5ee;
+        }
+
+        .form-field textarea {
+            min-height: 95px;
+            resize: vertical;
+        }
+
+        .form-help {
+            color: #89958e;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .form-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .form-options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #68756e;
+            font-size: 13px;
+        }
+
+        .form-options input {
+            accent-color: #5b9b82;
+            width: 16px;
+            height: 16px;
+        }
+
+        .image-preview {
+            display: none;
+            width: 125px;
+            height: 125px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #e8efeb;
+            margin-top: 8px;
+        }
+
+        .form-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .submit-btn {
+            background: #5b9b82;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+        }
+
+        .submit-btn:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        .reset-btn {
+            background: #eef4f0;
+            color: #5d6d63;
+            padding: 12px 18px;
+            border-radius: 10px;
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 16px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .form-message.success {
+            display: block;
+            color: #39765d;
+            background: #eaf6ef;
+        }
+
+        .form-message.error {
+            display: block;
+            color: #b64e4e;
+            background: #fff0f0;
+        }
+
+        @media (max-width: 650px) {
+            .product-section {
+                padding: 15px;
+            }
+
+            .product-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-field.full {
+                grid-column: auto;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .welcome h1 {
+                font-size: 21px;
+            }
+
+            .orders-section {
+                padding: 15px;
+            }
+        }
+        .product-list-section {
+    margin-bottom: 28px;
+}
+
+.product-admin-image {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 9px;
+}
+
+.product-admin-status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.product-admin-status.active {
+    background: #e8f5ee;
+    color: #39765d;
+}
+
+.product-admin-status.inactive {
+    background: #fff0f0;
+    color: #b64e4e;
+}
+
+        /* Admin layout and sidebar */
+        .admin-layout {
+            width: min(1400px, 96%);
+            margin: 28px auto;
+            display: grid;
+            grid-template-columns: 245px minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+            direction: rtl;
+        }
+
+        .admin-sidebar {
+            background: #fff;
+            border: 1px solid #e8efeb;
+            border-radius: 20px;
+            padding: 22px 16px;
+            min-height: calc(100vh - 150px);
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-logo {
+            color: #4e9478;
+            font-size: 19px;
+            font-weight: 800;
+            padding: 4px 9px 18px;
+            border-bottom: 1px solid #edf1ee;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-logo span {
+            display: block;
+            font-size: 12px;
+            color: #91a399;
+            font-weight: 500;
+            margin-top: 3px;
+        }
+
+        .sidebar-label {
+            color: #9aa69f;
+            font-size: 11px;
+            padding: 8px 10px 4px;
+        }
+
+        .sidebar-link {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            text-align: right;
+            padding: 13px 12px;
+            border-radius: 11px;
+            color: #64736a;
+            background: transparent;
+            font: inherit;
+            font-size: 13px;
+            transition: .2s ease;
+        }
+
+        .sidebar-link:hover {
+            background: #f3f8f5;
+            color: #4e9478;
+        }
+
+        .sidebar-link.active {
+            background: #e8f5ee;
+            color: #39765d;
+            font-weight: 700;
+        }
+
+        .sidebar-icon {
+            width: 22px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .sidebar-bottom {
+            display: grid;
+            gap: 13px;
+            border-top: 1px solid #edf1ee;
+            margin-top: auto;
+            padding: 18px 10px 3px;
+            color: #7c8a81;
+            font-size: 12px;
+        }
+
+        .sidebar-bottom a:hover {
+            color: #4e9478;
+        }
+
+        .admin-content {
+            min-width: 0;
+            padding: 8px 0 35px;
+        }
+
+        .admin-view[hidden] {
+            display: none !important;
+        }
+
+        .admin-view > .welcome {
+            margin-top: 12px;
+        }
+
+        .admin-view > .product-section,
+        .admin-view > .product-list-section,
+        .admin-view > .orders-section {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 800px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                width: 94%;
+                margin-top: 16px;
+            }
+
+            .admin-sidebar {
+                min-height: auto;
+                position: static;
+                padding: 14px;
+            }
+
+            .sidebar-logo {
+                padding-bottom: 10px;
+            }
+
+            .sidebar-label {
+                display: none;
+            }
+
+            .sidebar-link {
+                width: auto;
+                flex: 1 1 145px;
+                justify-content: center;
+                padding: 11px 8px;
+            }
+
+            .admin-sidebar {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .sidebar-logo {
+                width: 100%;
+            }
+
+            .sidebar-bottom {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                padding-top: 12px;
+            }
+
+            .admin-content {
+                padding-top: 5px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .sidebar-link {
+                flex-basis: calc(50% - 8px);
+                justify-content: flex-start;
+                font-size: 12px;
+            }
+        }
+        .order-status-select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-color: #f4fbf8;
+    color: #405d52;
+
+    border: 1px solid #cce9dc;
+    border-radius: 12px;
+
+    padding: 10px 32px 10px 14px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    outline: none;
+
+    transition: all 0.25s ease;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235b8c75' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-position: left 10px center;
+}
+
+.order-status-select:hover {
+    border-color: #91cbb1;
+    background-color: #eaf7f1;
+}
+
+.order-status-select:focus {
+    border-color: #78b99b;
+    box-shadow: 0 0 0 3px rgba(120, 185, 155, 0.15);
+}
+
+.order-status-select:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.order-status-select option {
+    background-color: #ffffff;
+    color: #405d52;
+    font-family: inherit;
+}
+body {
+    visibility: hidden;
+}
+    </style>
+<style>@media(max-width:700px){.container{width:94%}img{max-width:100%}button,a{touch-action:manipulation} .products{grid-template-columns:repeat(2,minmax(0,1fr))!important} .layout{grid-template-columns:1fr!important} .nav-links{flex-wrap:wrap}} </style>
+</head>
+
+<body>
+<div style="margin:12px auto;padding:9px 14px;width:min(1100px,92%);border-radius:12px;background:#e9fff5;color:#397b62;text-align:center;font:12px Vazirmatn,sans-serif">نسخه نمایشی LoveStay — اطلاعات و تغییرات فقط در همین مرورگر ذخیره می‌شوند.</div>
+
+<header>
+    <div class="container navbar">
+        <a href="index.html" class="logo">LoveStay Gallery ♡</a>
+
+        <nav class="nav-links">
+            <a href="index.html">صفحه اصلی فروشگاه</a>
+            <a href="account_with_orders.html">حساب کاربری</a>
+        </nav>
+    </div>
+</header>
+
+<main class="admin-layout">
+    <aside class="admin-sidebar">
+        <a href="index.html" class="sidebar-logo">LoveStay <span>Gallery ♡</span></a>
+        <p class="sidebar-label">منوی مدیریت</p>
+
+        <button class="sidebar-link active" type="button" data-view="dashboard">
+            <span class="sidebar-icon">▦</span> داشبورد
+        </button>
+        <button class="sidebar-link" type="button" data-view="add-product">
+            <span class="sidebar-icon">＋</span> افزودن محصول
+        </button>
+        <button class="sidebar-link" type="button" data-view="products">
+            <span class="sidebar-icon">▤</span> مدیریت محصولات
+        </button>
+        <button class="sidebar-link" type="button" data-view="orders">
+            <span class="sidebar-icon">▧</span> مدیریت سفارش‌ها
+        </button>
+
+        <div class="sidebar-bottom">
+            <a href="index.html">← بازگشت به فروشگاه</a>
+            <a href="account_with_orders.html">حساب کاربری</a>
+        </div>
+    </aside>
+
+    <div class="admin-content">
+        <section class="admin-view" id="view-dashboard">
+    <section class="welcome">
+        <h1>پنل مدیریت فروشگاه 🌱</h1>
+        <p>به بخش مدیریت LoveStay Gallery خوش اومدی.</p>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <span>تعداد کل سفارش‌ها</span>
+            <strong id="orderCount">۰</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>مجموع مبلغ سفارش‌ها</span>
+            <strong id="totalAmount">۰ تومان</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>سفارش‌های در حال بررسی</span>
+            <strong id="pendingCount">۰</strong>
+        </div>
+    </section>
+        </section>
+
+        <section class="admin-view" id="view-add-product" hidden>
+    <section class="product-section">
+        <div class="section-heading">
+            <div>
+                <h2>افزودن محصول جدید</h2>
+                <p class="form-help">اطلاعات محصول و تصویر آن را وارد کن تا به فروشگاه اضافه شود.</p>
+            </div>
+        </div>
+
+        <form id="productForm" class="product-form" enctype="multipart/form-data">
+            <input type="hidden" id="editProductId" name="id">
+            <div class="form-field">
+                <label for="productName">نام محصول *</label>
+                <input id="productName" name="name" type="text" maxlength="255"
+                       placeholder="مثلاً پک فتوکارت اسکیز" required>
+            </div>
+
+            <div class="form-field">
+                <label for="productCategory">دسته‌بندی *</label>
+                <select id="productCategory" name="category" required>
+                    <option value="">انتخاب دسته‌بندی</option>
+                    <option value="poster">پوستر</option>
+                    <option value="photocards">فتوکارت</option>
+                    <option value="accessories">اکسسوری</option>
+                </select>
+            </div>
+
+            <div class="form-field">
+                <label for="productPrice">قیمت (تومان) *</label>
+                <input id="productPrice" name="price" type="number" min="0" step="1"
+                       placeholder="مثلاً 250000" required>
+            </div>
+
+            <div class="form-field">
+                <label for="productStock">موجودی</label>
+                <input id="productStock" name="stock" type="number" min="0" step="1"
+                       value="0">
+            </div>
+
+            <div class="form-field">
+                <label for="productLabel">برچسب محصول</label>
+                <input id="productLabel" name="label" type="text" maxlength="50"
+                       placeholder="مثلاً محبوب یا جدید">
+            </div>
+
+            <div class="form-field">
+                <label for="productImage">تصویر محصول *</label>
+                <input id="productImage" name="image" type="file"
+                       accept="image/jpeg,image/png,image/webp" >
+                <span class="form-help">فرمت‌های مجاز: JPG، PNG و WEBP — حداکثر حجم: ۵ مگابایت</span>
+                <img id="imagePreview" class="image-preview" alt="پیش‌نمایش تصویر محصول">
+            </div>
+
+            <div class="form-field full">
+                <label for="productDescription">توضیحات محصول</label>
+                <textarea id="productDescription" name="description"
+                          placeholder="توضیحات کوتاه محصول..."></textarea>
+            </div>
+
+            <div class="form-field full">
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" name="is_active" value="1" checked>
+                        نمایش محصول در فروشگاه
+                    </label>
+                    <label>
+                        <input type="checkbox" name="is_popular" value="1">
+                        نمایش در محصولات محبوب
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-field full">
+                <div class="form-actions">
+                    <button class="submit-btn" id="submitProductBtn" type="submit">ثبت محصول</button>
+                    <button class="reset-btn" type="reset">پاک کردن فرم</button>
+                </div>
+                <div id="productFormMessage" class="form-message" role="status" aria-live="polite"></div>
+            </div>
+        </form>
+    </section>
+        </section>
+
+        <section class="admin-view" id="view-products" hidden>
+    <section class="orders-section product-list-section">
+
+        <div class="section-heading">
+            <div>
+                <h2>مدیریت محصولات</h2>
+                <p class="form-help">مشاهده و بررسی محصولات ثبت‌شده در فروشگاه</p>
+            </div>
+    
+            <button class="refresh-btn" onclick="loadAdminProducts()">
+                ↻ بروزرسانی
+            </button>
+        </div>
+    
+        <div id="adminProductsContainer" class="message">
+            در حال دریافت محصولات...
+        </div>
+    
+    </section>
+        </section>
+
+        <section class="admin-view" id="view-orders" hidden>
+            <section class="orders-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>مدیریت سفارش‌ها</h2>
+                        <p class="form-help">مشاهده و بررسی سفارش‌های ثبت‌شده</p>
+                    </div>
+                    <button class="refresh-btn" type="button" onclick="loadOrders()">
+                        ↻ بروزرسانی
+                    </button>
+                </div>
+                <div id="ordersContainer" class="message">
+                    در حال دریافت سفارش‌ها...
+                </div>
+            </section>
+        </section>
+    </div>
+</main>
+
+
+
+
+<script src="./demo.js"></script>
+</body>
+</html>

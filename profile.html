@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل من | LoveStay Gallery</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background: #caf8e8;
+            color: #333;
+        }
+
+        header {
+            background: white;
+            padding: 20px 8%;
+            box-shadow: 0 2px 12px ;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color:  black;
+        }
+        .logo span {
+            color: #62D9B0;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color:  black;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 750px;
+            margin: 55px auto;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            font-size: 28px;
+            color: #50e7c6;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px gray;
+        }
+
+        .section-title {
+            font-size: 17px;
+            color: green;
+            margin: 25px 0 18px;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 13px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid  #62D9B0;
+;
+            border-radius: 9px;
+            outline: none;
+            font-family: inherit;
+            font-size: 13px;
+            background: #fffafd;
+            transition: 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            border-color:  #62D9B0;
+            box-shadow: 0 0 0 3px green;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .save-btn {
+            width: 100%;
+            margin-top: 30px;
+            padding: 14px;
+            background:  #62D9B0;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .save-btn:hover {
+            background: #bd5285;
+        }
+
+        .message {
+            display: none;
+            text-align: center;
+            margin-top: 18px;
+            padding: 12px;
+            border-radius: 9px;
+            background: #effaf1;
+            color: #36834a;
+            font-size: 13px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 35px auto;
+            }
+
+            .profile-card {
+                padding: 22px 17px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: auto;
+            }
+
+            .page-title h1 {
+                font-size: 23px;
+            }
+        }
+        select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #82eeb3;
+    border-radius: 9px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    background: #fffafd;
+    color: #333;
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: hsl(143, 57%, 63%);
+    box-shadow: 0 0 0 3px ;
+}
+
+select:disabled {
+    background: #f3f0f2;
+    cursor: not-allowed;
+    color: #999;
+}
+    
+        .form-step[hidden] { display:none !important; }
+        .step-note { color:#777; font-size:13px; line-height:1.9; margin-bottom:18px; }
+        .secondary-btn { width:100%; margin-top:12px; padding:12px; background:#fff; color:#368f73; border:1px solid #62D9B0; border-radius:10px; font-family:inherit; cursor:pointer; }
+        .status-message { display:none; margin-top:15px; padding:12px; border-radius:9px; font-size:13px; line-height:1.8; text-align:center; background:#effaf1; color:#28734a; }
+        .status-message.error { background:#fff0f0; color:#a33b3b; }
+        button:disabled { opacity:.65; cursor:wait; }
+
+</style>
+<style>@media(max-width:700px){.container{width:94%}img{max-width:100%}button,a{touch-action:manipulation} .products{grid-template-columns:repeat(2,minmax(0,1fr))!important} .layout{grid-template-columns:1fr!important} .nav-links{flex-wrap:wrap}} </style>
+</head>
+
+<body>
+<div style="margin:12px auto;padding:9px 14px;width:min(1100px,92%);border-radius:12px;background:#e9fff5;color:#397b62;text-align:center;font:12px Vazirmatn,sans-serif">نسخه نمایشی LoveStay — اطلاعات و تغییرات فقط در همین مرورگر ذخیره می‌شوند.</div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Love<span>stay</span> Gallery </div>
+            <a href="index.html" class="back-link">بازگشت به فروشگاه ←</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <div class="page-title">
+            <h1>پروفایل من ♡</h1>
+            <p>اطلاعات خودت رو وارد کن تا برای سفارش‌های بعدی ذخیره بشن.</p>
+        </div>
+
+        <div class="profile-card">
+            <section id="phoneStep" class="form-step">
+                <h2 class="section-title">ورود به حساب کاربری</h2>
+                <p class="step-note">شماره موبایلت رو وارد کن تا کد تأیید یک‌بارمصرف برات ایجاد بشه.</p>
+                <div class="form-group"><label for="loginPhone">شماره موبایل</label><input type="tel" id="loginPhone" inputmode="tel" placeholder="09123456789" maxlength="13" autocomplete="tel"></div>
+                <button type="button" class="save-btn" id="sendCodeBtn">دریافت کد تأیید</button>
+            </section>
+            <section id="codeStep" class="form-step" hidden>
+                <h2 class="section-title">تأیید شماره موبایل</h2>
+                <p class="step-note">کد آزمایشی ۱۲۳۴۵۶ را وارد کن؛ هیچ پیامکی ارسال نمی‌شود.</p>
+                <div class="form-group"><label for="otpCode">کد تأیید</label><input type="text" id="otpCode" inputmode="numeric" maxlength="6" placeholder="کد ۶ رقمی" autocomplete="one-time-code"></div>
+                <button type="button" class="save-btn" id="verifyCodeBtn">تأیید و ادامه</button>
+                <button type="button" class="secondary-btn" id="backToPhoneBtn">ویرایش شماره موبایل</button>
+            </section>
+            <form id="profileForm" class="form-step" hidden>
+                <h2 class="section-title">ساخت حساب کاربری</h2>
+                <p class="step-note">شماره موبایلت تأیید شد. اطلاعاتت رو برای ساخت حساب تکمیل کن.</p>
+                <div class="form-group"><label for="phone">شماره موبایل تأییدشده</label><input type="tel" id="phone" readonly></div>
+                <h2 class="section-title">اطلاعات شخصی</h2>
+                <div class="form-grid">
+                    <div class="form-group"><label for="firstName">نام</label><input type="text" id="firstName" required></div>
+                    <div class="form-group"><label for="lastName">نام خانوادگی</label><input type="text" id="lastName" required></div>
+                    <div class="form-group full-width"><label for="email">ایمیل (اختیاری)</label><input type="email" id="email" placeholder="example@email.com"></div>
+                </div>
+                <h2 class="section-title">اطلاعات ارسال</h2>
+                <div class="form-grid">
+                    <div class="form-group"><label for="province">استان</label><select id="province" required><option value="">ابتدا استان را انتخاب کن</option></select></div>
+                    <div class="form-group"><label for="city">شهر</label><select id="city" required disabled><option value="">ابتدا استان را انتخاب کن</option></select></div>
+                    <div class="form-group full-width"><label for="postalCode">کد پستی</label><input type="text" id="postalCode" inputmode="numeric" maxlength="10" placeholder="کد پستی ۱۰ رقمی" required></div>
+                    <div class="form-group full-width"><label for="address">آدرس کامل</label><textarea id="address" placeholder="نام خیابان، کوچه و سایر جزئیات..." required></textarea></div>
+                    <div class="form-group"><label for="plaque">پلاک</label><input type="text" id="plaque" required></div>
+                    <div class="form-group"><label for="unit">واحد (اختیاری)</label><input type="text" id="unit"></div>
+                </div>
+                <button type="submit" class="save-btn" id="registerBtn">ساخت حساب کاربری</button>
+            </form>
+            <div class="status-message" id="statusMessage" role="status" aria-live="polite"></div>
+        </div>
+
+    </main>
+
+    <footer>
+        © 2026 LoveStay Gallery | Made with love ♡
+    </footer>
+
+    
+<script src="./demo.js"></script>
+</body>
+</html>

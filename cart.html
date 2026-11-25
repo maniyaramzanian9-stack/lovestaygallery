@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سبد خرید | LoveStay Gallery</title>
+<style>
+    @font-face {
+    font-family: "Vazirmatn";
+    src: url("./fonts/Vazirmatn-RD-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("./fonts/Vazirmatn-RD-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("./fonts/Vazirmatn-RD-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+:root{--mint:#BDF5DF;--pink:#f5e6ef;--ink:#292929;--gray:#777;--line:#ececec;--bg:#fbfcfa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif}a{color:inherit;text-decoration:none}
+.announcement-bar{text-align:center;background:var(--mint);padding:10px 14px;font-size:12px}
+.navbar{height:76px;padding:0 max(5%,calc((100% - 1150px)/2));display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid var(--line)}
+.logo{font-size:21px;font-weight:900;direction:ltr}.logo span{color:#79bda2}.nav-actions{display:flex;gap:18px;font-size:13px}
+main{max-width:1100px;margin:45px auto;padding:0 22px 60px}.intro{margin-bottom:28px}.eyebrow{font-size:11px;color:#8a9b92;margin:0 0 8px}
+h1{font-size:30px;margin:0 0 8px}.intro p:last-child{font-size:13px;color:var(--gray);margin:0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:22px;align-items:start}
+.items,.summary{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+.cart-item{display:grid;grid-template-columns:100px minmax(0,1fr) auto;gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.cart-item:first-child{padding-top:0}.cart-item:last-child{border:0;padding-bottom:0}
+.product-image{width:100px;height:112px;object-fit:cover;border-radius:12px;background:#f6f6f6}
+.item-info h3{font-size:14px;margin:0 0 7px}.muted{font-size:11px;color:var(--gray);margin:0 0 12px}
+.qty{display:flex;align-items:center;gap:9px}.qty button{border:0;background:var(--pink);width:28px;height:28px;border-radius:8px;font-size:17px;cursor:pointer}.qty span{min-width:20px;text-align:center;font-size:13px}
+.item-end{text-align:left;display:flex;flex-direction:column;align-items:flex-end;gap:12px}.subtotal{font-size:13px;font-weight:800;white-space:nowrap}.remove{border:0;background:none;color:#b46d86;font-family:inherit;font-size:11px;cursor:pointer}
+.summary h2{font-size:16px;margin:0 0 20px}.summary-line{display:flex;justify-content:space-between;gap:10px;font-size:12px;margin:15px 0;color:#666}.summary-line strong{color:var(--ink)}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}.total{font-size:14px;font-weight:800;color:var(--ink)}
+.checkout {
+    width: 100%;
+    border: none;
+    background: #BDF5DF;
+    color: #292929;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-family: "Vazirmatn", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(121, 189, 162, 0.15);
+}
+
+.checkout:hover {
+    background: #a5e9ce;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(121, 189, 162, 0.22);
+}
+
+.checkout:active {
+    transform: translateY(0);
+}
+
+.checkout:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+body {
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+}
+
+.shop-btn {
+    display: block;
+    text-align: center;
+    background: var(--mint);
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 13px;
+    margin-top: 20px;
+}
+.note{font-size:10px;line-height:1.9;color:#999;margin:14px 0 0}.empty{text-align:center;padding:55px 15px}.heart{font-size:40px;color:#c58ba6}.empty h2{font-size:17px}.empty p{font-size:12px;color:var(--gray)}
+.continue{display:inline-block;margin-top:18px;color:#659c84;font-size:12px}.status{font-size:12px;color:var(--gray);padding:12px 0}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#292929;color:white;padding:11px 18px;border-radius:10px;font-size:12px;opacity:0;pointer-events:none;transition:.2s}.toast.show{opacity:1}
+@media(max-width:760px){.navbar{height:65px;padding:0 17px}.logo{font-size:18px}.nav-actions{gap:11px;font-size:11px}main{margin:28px auto;padding:0 14px 45px}.layout{grid-template-columns:1fr}.summary{order:-1}h1{font-size:25px}}
+@media(max-width:430px){.items,.summary{padding:14px}.cart-item{grid-template-columns:76px minmax(0,1fr);gap:11px}.product-image{width:76px;height:90px}.item-end{grid-column:2;flex-direction:row;justify-content:space-between;align-items:center}.subtotal{font-size:12px}.item-info h3{font-size:12px}}
+</style><style>@media(max-width:700px){.container{width:94%}img{max-width:100%}button,a{touch-action:manipulation} .products{grid-template-columns:repeat(2,minmax(0,1fr))!important} .layout{grid-template-columns:1fr!important} .nav-links{flex-wrap:wrap}} </style>
+</head>
+<body>
+<div style="margin:12px auto;padding:9px 14px;width:min(1100px,92%);border-radius:12px;background:#e9fff5;color:#397b62;text-align:center;font:12px Vazirmatn,sans-serif">نسخه نمایشی LoveStay — اطلاعات و تغییرات فقط در همین مرورگر ذخیره می‌شوند.</div>
+<div class="announcement-bar">هر هفته، فقط روزهای شنبه ارسال داریم</div>
+<nav class="navbar"><a class="logo" href="index.html">LoveStay <span>Gallery</span></a><div class="nav-actions"><a href="index.html">صفحه اصلی</a><a href="products.html">فروشگاه</a><a href="account.html">حساب کاربری</a></div></nav>
+<main>
+<header class="intro"><p class="eyebrow">مجموعه کوچولوی تو</p><h1>سبد خرید<span style="color:#d49ab5">.</span></h1><p>همه چیزهایی که انتخاب کردی، یک‌جا.</p></header>
+<div id="status" class="status">در حال بارگذاری سبد خرید...</div>
+<section id="cartContent" class="layout" hidden><div class="items" id="cartItems"></div>
+<aside class="summary"><h2>خلاصه سفارش</h2><div class="summary-line"><span>تعداد محصولات</span><strong id="itemCount">۰</strong></div><div class="summary-line"><span>جمع جزء</span><strong id="subtotal">۰ تومان</strong></div><div class="summary-line"><span>هزینه ارسال</span><span>بعداً محاسبه می‌شود</span></div><hr><div class="summary-line total"><span>مبلغ کل</span><strong id="total">۰ تومان</strong></div><button class="checkout" id="checkoutBtn" type="button">
+    ثبت نهایی سفارش ←
+</button><p class="note">هزینه ارسال در مرحله بعد مشخص می‌شود. پرداخت آنلاین هنوز فعال نشده است.</p></aside></section>
+<section id="emptyState" class="items empty" hidden><div class="heart">♡</div><h2>سبد خریدت هنوز خالیه!</h2><p>توی گالری بگرد و محبوب بعدیت رو پیدا کن.</p><a class="shop-btn" href="products.html">رفتن به فروشگاه</a></section>
+<a class="continue" href="products.html">← ادامه خرید</a></main><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="./demo.js"></script>
+</body></html>

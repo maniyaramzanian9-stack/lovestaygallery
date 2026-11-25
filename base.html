@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}LoveStay Gallery{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">♡</span><span>lovestay <i>gallery</i></span></a>
+  <nav class="main-nav">
+    <a href="{{ url_for('home') }}">خانه</a>
+    <a href="{{ url_for('home') }}#categories">خرید بر اساس دسته‌بندی</a>
+    <a href="{{ url_for('profile') }}">پروفایل من</a>
+  </nav>
+  <a class="bag-link" href="{{ url_for('cart') }}">سبد خرید <span>{{ cart_count }}</span></a>
+</header>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}<div class="flash-wrap">{% for message in messages %}<div class="flash">{{ message }}</div>{% endfor %}</div>{% endif %}
+{% endwith %}
+<main>{% block content %}{% endblock %}</main>
+<footer class="footer">
+  <a class="brand footer-brand" href="{{ url_for('home') }}"><span class="brand-mark">♡</span><span>lovestay <i>gallery</i></span></a>
+  <p>برای عشق به جمع‌آوری چیزهای کوچولوی دوست‌داشتنی ساخته شده.</p>
+  <small>© 2026 LoveStay Gallery · فروشگاه نمایشی</small>
+</footer>
+</body>
+</html>

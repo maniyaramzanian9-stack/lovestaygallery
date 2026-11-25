@@ -1,0 +1,1071 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محصولات | LoveStay Gallery</title>
+<style>@media(max-width:700px){.container{width:94%}img{max-width:100%}button,a{touch-action:manipulation} .products{grid-template-columns:repeat(2,minmax(0,1fr))!important} .layout{grid-template-columns:1fr!important} .nav-links{flex-wrap:wrap}} </style>
+</head>
+<style>
+  @font-face {
+    font-family: "Vazirmatn";
+    src: url("./fonts/Vazirmatn-RD-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("./fonts/Vazirmatn-RD-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("./fonts/Vazirmatn-RD-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
+  background: #FAFAFA;
+  color: #222;
+}
+.logo span {
+            color: #62D9B0;
+            
+        }
+
+/* Announcement */
+.announcement-bar {
+  width: 100%;
+  background: #BDF5DF;
+  color: #000;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Navbar */
+.navbar {
+  background: white;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 15px rgba(0,0,0,.04);
+  position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  color: #222;
+  text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #222;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: .25s;
+}
+
+.icon-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.icon-btn:hover {
+  background: #E7FFF5;
+  transform: translateY(-2px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  padding: 15px 6%;
+  gap: 15px;
+}
+
+.mobile-menu.show {
+  display: flex;
+}
+
+.mobile-menu a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Page Header */
+.page-header {
+  text-align: center;
+  padding: 55px 20px 35px;
+}
+
+.page-header h1 {
+  font-size: 30px;
+  margin-bottom: 12px;
+  font-weight: 900;
+}
+
+.page-header p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 20px 35px;
+}
+
+.filter-btn {
+  text-decoration: none;
+  color: #333;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 25px;
+  padding: 10px 22px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: .25s;
+  font-family: inherit;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #BDF5DF;
+  border-color: #BDF5DF;
+}
+
+/* Sections */
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px;
+  scroll-margin-top: 100px;
+}
+
+.section-heading {
+  margin-bottom: 25px;
+}
+
+.section-heading h2 {
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.section-heading p {
+  color: #777;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Products */
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.product-card {
+  min-width: 0;
+  border: 1px solid #F0F0F0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: white;
+  transition: .25s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.07);
+}
+
+.product-image {
+  height: 210px;
+  position: relative;
+  overflow: hidden;
+  background: #F0EDFA;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-label {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: white;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 800;
+  z-index: 1;
+}
+
+.product-info {
+  padding: 15px;
+}
+
+.product-info h3 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.product-info p {
+  color: #777;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.price {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.add-btn {
+  border: none;
+  background: #E7FFF5;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: .2s;
+}
+
+.add-btn:hover {
+  background: #BDF5DF;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  padding: 30px;
+  text-align: center;
+  background: #E7FFF5;
+  font-size: 13px;
+  line-height: 2;
+}
+
+/* Message */
+.message-box {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 100px);
+  background: #222;
+  color: white;
+  padding: 13px 22px;
+  border-radius: 15px;
+  font-size: 13px;
+  opacity: 0;
+  transition: .3s;
+  z-index: 100;
+  text-align: center;
+  width: max-content;
+  max-width: 90%;
+}
+
+.message-box.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .products {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+      padding: 15px 4%;
+  }
+
+  .logo {
+      font-size: 19px;
+  }
+
+  .nav-actions {
+      gap: 5px;
+  }
+
+  .page-header {
+      padding: 40px 15px 25px;
+  }
+
+  .page-header h1 {
+      font-size: 25px;
+  }
+
+  .section {
+      padding: 20px 15px;
+  }
+
+  .products {
+      gap: 12px;
+  }
+
+  .product-image {
+      height: 170px;
+  }
+
+  .product-info {
+      padding: 10px;
+  }
+
+  .product-info h3 {
+      font-size: 12px;
+  }
+
+  .price {
+      font-size: 11px;
+  }
+
+  .add-btn {
+      padding: 7px 9px;
+      font-size: 11px;
+  }
+}
+
+/* Cart Icon */
+.cart-toggle {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    border-radius: 50px;
+    background: #BDF5DF;
+    color: #222;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Cart Overlay */
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.cart-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Cart Panel */
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 380px;
+    max-width: 90%;
+    height: 100vh;
+    background: white;
+    z-index: 101;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: .3s;
+}
+
+.cart-panel.show {
+    transform: translateX(0);
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-header h2 {
+    font-size: 19px;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px 0;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #888;
+    padding: 50px 10px;
+    font-size: 14px;
+}
+
+.cart-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 65px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.cart-item-info p {
+    font-size: 12px;
+    color: #777;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.quantity-controls button {
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 7px;
+    background: #E7FFF5;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.remove-item {
+    background: none;
+    border: none;
+    color: #D66;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.cart-footer {
+    border-top: 1px solid #eee;
+    padding-top: 18px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: #BDF5DF;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+body.cart-open {
+    overflow: hidden;
+}
+/* Product quantity controls */
+.card-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 12px;
+}
+
+.card-quantity button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: #f2e5ed;
+    color: #8b496d;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.card-quantity button:hover {
+    background: #e8cddd;
+}
+
+.card-quantity span {
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+ /* FOOTER */
+
+ footer {
+            background: #F8F9F7;
+            padding: 40px 25px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-content p {
+            color: var(--gray);
+            font-size: 13px;
+            max-width: 320px;
+            margin-top: 10px;
+        }
+
+        .footer-links h3 {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            display: block;
+            font-size: 13px;
+            color: var(--gray);
+            margin-bottom: 7px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #999;
+            font-size: 11px;
+            margin-top: 35px;
+            border-top: 1px solid #EAEAEA;
+            padding-top: 15px;
+        }
+
+</style>
+<body>
+
+    <div class="announcement-bar">
+        هر هفته، فقط روزهای شنبه ارسال داریم 
+    </div>
+
+    
+<nav class="navbar">
+    
+
+    <a href="index.html" class="logo">
+        <img src="./img/logostay.jpg" alt="LoveStay Gallery">
+        LoveStay Gallery
+    </a>
+
+  <div class="nav-actions">
+
+      <button class="icon-btn cart-toggle" onclick="openCart()" aria-label="سبد خرید">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 7H6"/>
+              <circle cx="10" cy="21" r="1"/>
+              <circle cx="18" cy="21" r="1"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <button class="icon-btn" onclick="window.location.href='profile.html'"
+      aria-label="پروفایل">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="8" r="3.5"/>
+              <path d="M5 21c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/>
+          </svg>
+      </button>
+
+      <button class="icon-btn menu-toggle" onclick="toggleMenu()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+      </button>
+
+  </div>
+</nav>
+
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">صفحه اصلی</a>
+        <a href="#photocards">فتوکارت</a>
+        <a href="#posters">پوستر</a>
+        <a href="#accessories">اکسسوری</a>
+    </div>
+<!--Filters
+    <header class="page-header">
+        <h1>همه محصولات</h1>
+        <p>یه گوشه کوچیک از دنیای چیزهای موردعلاقه‌ت!</p>
+    </header>
+
+      
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">همه محصولات</button>
+        <button class="filter-btn" data-filter="photocards">فتوکارت</button>
+        <button class="filter-btn" data-filter="posters">پوستر</button>
+        <button class="filter-btn" data-filter="accessories">اکسسوری</button>
+    </div>-->
+
+    <main>
+
+        <!-- poster -->
+        <section class="section" id="poster" data-category="poster">
+            <div class="section-heading">
+                <div>
+                    <h2>پوسترها </h2>
+                    <p>برای قشنگتر کردن گوشه اتاقت</p>
+                </div>
+            </div>
+
+            <div class="products">
+                <!-- محصولات از دیتابیس بارگذاری می‌شوند -->
+            </div>
+        </section>
+
+        <!-- photocards -->
+        <section class="section" id="photocards" data-category="photocards">
+            <div class="section-heading">
+                <div>
+                    <h2>فوتوکارت ها </h2>
+                    <p>کلی عکس جذاب از ایدل هات</p>
+                </div>
+            </div>
+
+            <div class="products">
+                <!-- محصولات از دیتابیس بارگذاری می‌شوند -->
+            </div>
+        </section>
+
+        <!-- ACCESSORIES -->
+        <section class="section" id="accessories" data-category="accessories">
+            <div class="section-heading">
+                <div>
+                    <h2>اکسسوری‌ها 🎀</h2>
+                    <p>چیزهای کوچولو و دوست‌داشتنی!</p>
+                </div>
+            </div>
+
+            <div class="products">
+                <!-- محصولات از دیتابیس بارگذاری می‌شوند -->
+            </div>
+        </section>
+
+    </main>
+
+   <!-- FOOTER -->
+   <footer id="footer">
+
+    <div class="footer-content">
+
+        <div>
+            <a href="#" class="logo">
+                Love<span>Stay</span> Gallery
+            </a>
+
+            <p>
+                یه گوشه‌ی کوچیک برای عاشقان دنیای کی‌پاپ.
+                اینجا هر محصول با کلی عشق انتخاب شده!
+            </p>
+        </div>
+
+
+        <div class="footer-links">
+            <h3>ارتباط با ما</h3>
+            <a href="https://www.instagram.com/lovestay.gallery/">اینستاگرام</a>
+            <a href="https://t.me/Im_on_a_hellevator">پشتیبانی</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © تمامی حقوق برای LoveStay Gallery محفوظ است.
+    </div>
+
+</footer>
+
+    <div class="message-box" id="messageBox"></div>
+
+    <!-- Shopping Cart -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+    <aside class="cart-panel" id="cartPanel" aria-label="سبد خرید">
+        <div class="cart-header">
+            <h2>سبد خرید من 🛒</h2>
+            <button class="close-cart" type="button" onclick="closeCart()" aria-label="بستن">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">سبد خریدت هنوز خالیه! 🛒</div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>مجموع:</strong>
+                <strong id="cartTotal">۰ تومان</strong>
+            </div>
+            <a class="checkout-btn" href="cart.html">
+                مشاهده سبد خرید و ثبت سفارش
+            </a>
+        </div>
+    </aside>
+
+    
+<script>
+/* =========================================
+   LOVE STAY GALLERY - FRONT-END DEMO
+   بدون اتصال به دیتابیس، PHP یا API
+========================================= */
+
+const CART_KEY = "lovestayCart";
+
+const demoProducts = [
+    // Photocards
+    { id: 101, name: "پک فتوکارت چانگبین", description: "مجموعه فتوکارت با طراحی خاص", price: 180000, image: "./img/channie pack.jpg", label: "پرفروش", category: "photocards", stock: 10 },
+    { id: 102, name: "پک فتوکارت کی‌پاپ", description: "مناسب برای کلکسیونرها", price: 220000, image: "./img/gmm pack.jpg", label: "جدید", category: "photocards", stock: 8 },
+    { id: 103, name: "فتوکارت ویژه", description: "یک انتخاب دوست‌داشتنی برای استی‌ها", price: 150000, image: "./img/channie pack.jpg", label: "", category: "photocards", stock: 7 },
+    { id: 104, name: "مجموعه فتوکارت", description: "چند کارت جذاب در یک پک", price: 250000, image: "./img/gmm pack.jpg", label: "ویژه", category: "photocards", stock: 5 },
+
+    // Posters
+    { id: 201, name: "پوستر اسپایدر", description: "پوستر مناسب دکور اتاق", price: 190000, image: "./img/spider poster.jpg", label: "محبوب", category: "poster", stock: 6 },
+    { id: 202, name: "پوستر کی‌پاپ", description: "برای قشنگ‌تر کردن گوشه اتاقت", price: 210000, image: "./img/spider poster.jpg", label: "", category: "poster", stock: 9 },
+    { id: 203, name: "پوستر کلکسیونی", description: "چاپ باکیفیت و طراحی جذاب", price: 230000, image: "./img/spider poster.jpg", label: "جدید", category: "poster", stock: 4 },
+
+    // Accessories
+    { id: 301, name: "پک اکسسوری", description: "چیزهای کوچولو و دوست‌داشتنی", price: 160000, image: "./img/gmm pack.jpg", label: "پرفروش", category: "accessories", stock: 12 },
+    { id: 302, name: "اکسسوری کی‌پاپ", description: "یک هدیه کوچک برای طرفدارها", price: 130000, image: "./img/channie pack.jpg", label: "", category: "accessories", stock: 10 },
+    { id: 303, name: "پک هدیه", description: "مناسب هدیه دادن به دوستانت", price: 280000, image: "./img/gmm pack.jpg", label: "ویژه", category: "accessories", stock: 3 }
+];
+
+let cart = [];
+
+function formatPrice(price) {
+    return Number(price || 0).toLocaleString("fa-IR") + " تومان";
+}
+
+function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;",
+        '"': "&quot;", "'": "&#039;"
+    })[char]);
+}
+
+function showMessage(message) {
+    const box = document.getElementById("messageBox");
+    if (!box) return;
+    box.textContent = message;
+    box.classList.add("show");
+    clearTimeout(window.demoMessageTimer);
+    window.demoMessageTimer = setTimeout(() => box.classList.remove("show"), 2500);
+}
+
+function loadCart() {
+    try {
+        const saved = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+        cart = Array.isArray(saved) ? saved : [];
+    } catch {
+        cart = [];
+    }
+}
+
+function saveCart() {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
+
+function renderProducts(products) {
+    const sections = {
+        poster: document.querySelector('[data-category="poster"] .products'),
+        photocards: document.querySelector('[data-category="photocards"] .products'),
+        accessories: document.querySelector('[data-category="accessories"] .products')
+    };
+
+    Object.values(sections).forEach(container => {
+        if (container) container.innerHTML = "";
+    });
+
+    products.forEach(product => {
+        const container = sections[product.category];
+        if (!container) return;
+
+        const card = document.createElement("article");
+        card.className = "product-card";
+        card.dataset.productId = product.id;
+        card.dataset.stock = product.stock;
+
+        card.innerHTML = `
+            <div class="product-image">
+                ${product.label ? `<span class="product-label">${escapeHTML(product.label)}</span>` : ""}
+                <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" loading="lazy"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="product-info">
+                <h3>${escapeHTML(product.name)}</h3>
+                <p>${escapeHTML(product.description)}</p>
+                <div class="product-bottom">
+                    <span class="price">${formatPrice(product.price)}</span>
+                    <button class="add-btn" type="button">افزودن +</button>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+
+    updateProductCards();
+}
+
+function updateProductCards() {
+    document.querySelectorAll(".product-card").forEach(card => {
+        const id = Number(card.dataset.productId);
+        const stock = Number(card.dataset.stock);
+        const item = cart.find(product => Number(product.id) === id);
+        const controls = card.querySelector(".add-btn, .card-quantity");
+        if (!controls) return;
+
+        if (item && item.quantity > 0) {
+            controls.outerHTML = `
+                <div class="card-quantity">
+                    <button class="qty-minus" type="button" aria-label="کم کردن">−</button>
+                    <span>${item.quantity}</span>
+                    <button class="qty-plus" type="button" aria-label="زیاد کردن" ${item.quantity >= stock ? "disabled" : ""}>+</button>
+                </div>`;
+        } else {
+            controls.outerHTML = `<button class="add-btn" type="button" ${stock <= 0 ? "disabled" : ""}>${stock <= 0 ? "ناموجود" : "افزودن +"}</button>`;
+        }
+    });
+}
+
+function renderCart() {
+    const items = document.getElementById("cartItems");
+    const count = document.getElementById("cartCount");
+    const total = document.getElementById("cartTotal");
+    if (!items || !count || !total) return;
+
+    const quantity = cart.reduce((sum, item) => sum + Number(item.quantity || 0), 0);
+    const price = cart.reduce((sum, item) => sum + Number(item.price || 0) * Number(item.quantity || 0), 0);
+
+    count.textContent = quantity.toLocaleString("fa-IR");
+    total.textContent = formatPrice(price);
+
+    if (!cart.length) {
+        items.innerHTML = '<div class="empty-cart">سبد خریدت هنوز خالیه! 🛒</div>';
+    } else {
+        items.innerHTML = cart.map((item, index) => `
+            <div class="cart-item">
+                <img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.name)}">
+                <div class="cart-item-info">
+                    <h4>${escapeHTML(item.name)}</h4>
+                    <p>${formatPrice(item.price)}</p>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="changeQuantity(${index}, 1)">+</button>
+                        <span>${Number(item.quantity).toLocaleString("fa-IR")}</span>
+                        <button type="button" onclick="changeQuantity(${index}, -1)">−</button>
+                    </div>
+                    <button class="remove-item" type="button" onclick="removeProduct(${index})">حذف محصول</button>
+                </div>
+            </div>`).join("");
+    }
+
+    updateProductCards();
+}
+
+function addProduct(productId) {
+    const product = demoProducts.find(item => item.id === productId);
+    if (!product) return;
+
+    const item = cart.find(item => Number(item.id) === productId);
+    if (item) {
+        if (item.quantity >= product.stock) {
+            showMessage("بیشتر از موجودی نمایشی نمی‌توانی اضافه کنی.");
+            return;
+        }
+        item.quantity++;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            quantity: 1
+        });
+    }
+
+    saveCart();
+    renderCart();
+    showMessage(product.name + " به سبد خرید اضافه شد ♡");
+}
+
+document.addEventListener("click", event => {
+    const card = event.target.closest(".product-card");
+    if (!card) return;
+
+    const id = Number(card.dataset.productId);
+    const item = cart.find(product => Number(product.id) === id);
+    const product = demoProducts.find(product => product.id === id);
+    if (!product) return;
+
+    if (event.target.closest(".add-btn")) {
+        addProduct(id);
+    } else if (event.target.closest(".qty-plus")) {
+        if (item && item.quantity < product.stock) {
+            item.quantity++;
+            saveCart();
+            renderCart();
+        }
+    } else if (event.target.closest(".qty-minus")) {
+        if (item) changeQuantity(cart.indexOf(item), -1);
+    }
+});
+
+function changeQuantity(index, amount) {
+    const item = cart[index];
+    if (!item) return;
+
+    const product = demoProducts.find(product => product.id === Number(item.id));
+    const next = Number(item.quantity) + amount;
+
+    if (next <= 0) {
+        cart.splice(index, 1);
+    } else if (product && next <= product.stock) {
+        item.quantity = next;
+    } else {
+        showMessage("موجودی نمایشی این محصول کافی نیست.");
+    }
+
+    saveCart();
+    renderCart();
+}
+
+function removeProduct(index) {
+    if (index < 0 || index >= cart.length) return;
+    cart.splice(index, 1);
+    saveCart();
+    renderCart();
+}
+
+function openCart() {
+    renderCart();
+    document.getElementById("cartPanel")?.classList.add("show");
+    document.getElementById("cartOverlay")?.classList.add("show");
+    document.body.classList.add("cart-open");
+}
+
+function closeCart() {
+    document.getElementById("cartPanel")?.classList.remove("show");
+    document.getElementById("cartOverlay")?.classList.remove("show");
+    document.body.classList.remove("cart-open");
+}
+
+function toggleMenu() {
+    document.getElementById("mobileMenu")?.classList.toggle("show");
+}
+
+// صفحه دمو به ورود یا حساب کاربری واقعی متصل نیست.
+document.addEventListener("DOMContentLoaded", () => {
+    loadCart();
+    renderProducts(demoProducts);
+    renderCart();
+});
+</script>
+
+      
+</body>
+</html>
